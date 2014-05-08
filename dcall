@@ -1,13 +1,25 @@
 #!/bin/bash
 
+if test -z "$1"
+then
+  echo "usage: $0 <prefix>"
+  echo "e.g. : $0 foo"
+  echo "will commit all your containers as foo/bar"
+  exit
+fi
+PREFIX=$1
+
 echo "This command will commit all running containers"
 echo "No tag will be assigned so they will be tagged 'latest'"
 
 read -p "Are you sure you want to continue? " -n 1 -r
-echo    # (optional) move to a new line
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    for DOC in `~/bin/dnames` ;do echo $DOC; docker.io commit $DOC kartoza/$DOC; done
+    for DOC in `dnames` 
+      do echo $DOC
+      docker.io commit $DOC $PREFIX/$DOC
+    done
     docker.io images
 fi
 
