@@ -17,7 +17,7 @@ git clone git@github.com:timlinux/docker-helpers.git
 Now add this somewhere to your ``~/.bashrc``:
 
 ```
-export PATH=$PATH:$HOME/docker-helpers
+export PATH=$PATH:$HOME/bin/docker-helpers
 ```
 
 **Warning**: Some of these commands may be destructive - use at your own risk
