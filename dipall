@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "IP address of all named running containers"
+
+for DOC in `~/bin/dnames`
+do 
+  IP=`docker.io inspect $DOC | grep IPAddress | grep -o "[0-9\.]*"`
+  echo $DOC : $IP
+done
+
+

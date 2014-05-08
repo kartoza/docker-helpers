@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "This command will export all running containers"
+
+read -p "Are you sure you want to continue? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    for DOC in `~/bin/dnames` ;do echo $DOC; docker.io export $DOC > kartoza-docker-export-${DOC}.tar; done
+    ls -lah kartoza-docker-export*
+fi
+
+
