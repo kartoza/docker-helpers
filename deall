@@ -6,7 +6,7 @@ read -p "Are you sure you want to continue? " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    for DOC in `~/bin/dnames`
+    for DOC in `~/bin/docker-helpers/dnames`
     do 
       echo $DOC
       docker.io export $DOC > docker-export-${DOC}.tar
