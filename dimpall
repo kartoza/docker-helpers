@@ -1,1 +1,1 @@
-for FILE in `ls ${HOME}/exported-docker-containers/*.tar`; do CONTAINER=$(basename $FILE .tar| sed 's/docker-export-//g'); echo "Importing exported container $FILE to $CONTAINER"; cat $FILE | docker.io import - $CONTAINER:latest; done
+for FILE in `ls ${HOME}/exported-docker-containers/*.tar`; do CONTAINER=$(basename $FILE .tar| sed 's/docker-export-//g'); echo "Importing exported container $FILE to $CONTAINER"; cat $FILE | docker import - $CONTAINER:latest; done

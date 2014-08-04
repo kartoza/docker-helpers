@@ -3,4 +3,4 @@
 # List all docker images
 # Tim Sutton, 2014
 
-docker.io images
+docker images

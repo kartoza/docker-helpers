@@ -3,4 +3,4 @@
 # List all docker containers
 # Tim Sutton, 2014
 
-docker.io ps -a
+docker ps -a

@@ -9,7 +9,7 @@ then
     for DOC in `~/bin/docker-helpers/dnames`
     do 
       echo $DOC
-      docker.io export $DOC > docker-export-${DOC}.tar
+      docker export $DOC > docker-export-${DOC}.tar
     done
     ls -lah docker-export*
 fi

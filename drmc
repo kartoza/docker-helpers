@@ -6,7 +6,7 @@ read -p "Are you sure you want to continue? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    docker.io rm $(docker.io ps -a -q)
+    docker rm $(docker ps -a -q)
 fi
 
-docker.io ps -a
+docker ps -a

@@ -6,7 +6,7 @@ read -p "Are you sure you want to continue? " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    docker.io rmi $(docker.io images -a | grep "^<none>" | awk '{print $3}')
+    docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}')
 fi
 
-docker.io images
+docker images

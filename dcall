@@ -18,9 +18,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     for DOC in `dnames` 
       do echo $DOC
-      docker.io commit $DOC $PREFIX/$DOC
+      docker commit $DOC $PREFIX/$DOC
     done
-    docker.io images
+    docker images
 fi
 
 
