@@ -2,4 +2,4 @@
 
 # Get a list of running containr's names and print to stdout
 
-dps |grep -v "Exit" | grep -o "[a-zA-Z\.\-]*[ ]*$" | sed 's/ //g' | grep -v "NAMES"
+dps |grep -v "Exit" | grep -o "[a-zA-Z0-9\_\.\-]*[ ]*$" | sed 's/ //g' | grep -v "NAMES"
