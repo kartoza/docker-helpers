@@ -40,4 +40,5 @@ and test on a test system before using in a production environment.
 * **dps** - List all running containers. Short hand for docker ps -a.
 * **drmc** - Remove all stopped containers.
 * **drmi** - Remove all images that have no tags.
-
+* **dstart** - Start all exited containers. Typically you want to do this after
+  a host reboot.
