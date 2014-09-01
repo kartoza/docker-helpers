@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Commit and all running containers.
+# Tim Sutton, September 2014
+NAMESPACE=$1
+if test -z "$1"
+then
+  echo "usage: $0 <organisation>"
+  echo "e.g. : $0 kartoza"
+  echo "will commit all containers as kartoza/<container-name>:DATE"
+  exit
+fi
+
+DATE=`date +%d-%B-%Y`
+for CONTAINER in `dnames`
+do
+  COMMIT="${NAMESPACE}/${CONTAINER}:${DATE}"
+  echo "Committing ${CONTAINER} as ${COMMIT}"
+  set -x
+  docker commit ${CONTAINER} ${COMMIT}
+done
+dps | grep ${DATE}
