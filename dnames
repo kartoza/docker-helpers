@@ -2,7 +2,7 @@
 
 # Get a list of running container's names and print to stdout
 
-for ID in `docker ps -a | awk '{print $1}'| grep -v 'CONTAINER'`
+for ID in `docker ps | awk '{print $1}'| grep -v 'CONTAINER'`
 do
     docker inspect $ID | grep Name | tail -1 | awk '{print $2}' | sed 's/,//g' | sed 's%/%%g' | sed 's/"//g'
 done
