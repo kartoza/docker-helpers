@@ -1,5 +1,8 @@
 #!/bin/bash
 
-# Get a list of running containr's names and print to stdout
+# Get a list of running container's names and print to stdout
 
-dps |grep -v "Exit" | grep -o "[a-zA-Z\.\-]*[ ]*$" | sed 's/ //g' | grep -v "NAMES"
+for ID in `docker ps -a | awk '{print $1}'| grep -v 'CONTAINER'`
+do
+    docker inspect $ID | grep Name | tail -1 | awk '{print $2}' | sed 's/,//g' | sed 's%/%%g' | sed 's/"//g'
+done
