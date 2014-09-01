@@ -27,6 +27,8 @@ and test on a test system before using in a production environment.
 
 * **dcall** - Commit all named containers. Provide a prefix for the image name.
   The committed image will be in the form ``<prefix>/<container name>``.
+* **dcalldated** - Like the above command but adds a date stamp as the tag.
+  The committed image will be in the form ``<prefix>/<container name>:01-Septmber-2014``.
 * **deall** - Export all named containers. Exported containers will be named
   in the form ``docker-export-<container name>``.
 * **dipall** - List the name and IP address of all named containers. Output 
