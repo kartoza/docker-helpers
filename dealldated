@@ -5,6 +5,15 @@ echo "as date stamped tar files."
 echo "You can re-import these containers on another host using:"
 echo "cat <exported_container>.tar | docker import - organisation/image:tag"
 
+NAMESPACE=$1
+if test -z "$1"
+then
+  echo "usage: $0 <organisation>"
+  echo "e.g. : $0 kartoza"
+  echo "will export all containers as kartoza:<container-name>:DATE"
+  exit
+fi
+
 read -p "Are you sure you want to continue? " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
@@ -13,7 +22,7 @@ then
   for CONTAINER in `dnames`
   do
     NAME="docker-export:${NAMESPACE}:${CONTAINER}:${DATE}.tar"
-    echo "Exporting${CONTAINER} to ${NAME}"
+    echo "Exporting ${CONTAINER} to ${NAME}"
     docker export ${CONTAINER} > ${NAME}
   done
   ls -lah docker-export*
