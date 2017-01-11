@@ -4,7 +4,7 @@ echo "IP address of all named running containers"
 
 for DOC in `dnames`
 do 
-  IP=`docker inspect $DOC | grep IPAddress | grep -o "[0-9\.]*"`
+  IP=`docker inspect $DOC | grep IPAddress | tail -1 | sed s/\"//g | sed "s/,//g" | awk '{print $2}'`
   echo $DOC : $IP
 done
 
