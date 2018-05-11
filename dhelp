@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# set scripts dir as cwd
+cd "${0%/*}"
+
+echo 
+cat README.md | grep  '\*'
+echo ''
